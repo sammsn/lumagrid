@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour
 
     public int score { get; private set; }
     private int basePoints = 100;
+    int comboCount = 0;
+    float lastMatchTime = -10f;
+    public float comboWindow = 2f;
 
     void Awake()
     {
@@ -27,6 +30,8 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         score = 0;
+        comboCount = 0;
+        lastMatchTime = -10f;
     }
 
     IEnumerator ComparisonLoop()
@@ -78,6 +83,11 @@ public class GameManager : MonoBehaviour
 
     void ApplyMatchScore()
     {
-        score += basePoints;
+        float now = Time.time;
+        if (now - lastMatchTime <= comboWindow) comboCount++; else comboCount = 1;
+        lastMatchTime = now;
+
+        int points = Mathf.RoundToInt(basePoints * (1f + (comboCount - 1) * 0.5f));
+        score += points;
     }
 }
