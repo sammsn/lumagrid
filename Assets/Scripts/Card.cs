@@ -5,19 +5,22 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Button))]
 public class Card : MonoBehaviour
 {
-    public int id; 
+    public int id;
     public Image frontImage;
-    public Image backImage; 
+    public Image backImage;
     public float flipDuration = 0.22f;
+    Button button;
+
     public bool IsMatched { get; private set; }
     public bool IsFaceUp { get; private set; }
     public bool IsAnimating { get; private set; }
-    Button button;
+
     void Awake()
     {
         button = GetComponent<Button>();
         button.onClick.AddListener(OnClicked);
     }
+
     public void Initialize(int id, Sprite frontSprite, Sprite backSprite)
     {
         this.id = id;
@@ -27,9 +30,12 @@ public class Card : MonoBehaviour
         IsFaceUp = false;
         SetVisualInstant(false);
     }
+
     void OnClicked()
     {
-        if (IsMatched || IsAnimating || IsFaceUp) return;
+        if (IsMatched || IsAnimating || IsFaceUp)
+            return;
+
         StartCoroutine(Flip(true));
     }
 
@@ -52,6 +58,7 @@ public class Card : MonoBehaviour
         backImage.gameObject.SetActive(!IsFaceUp);
 
         t = 0f;
+
         while (t < half)
         {
             t += Time.deltaTime;
@@ -59,15 +66,18 @@ public class Card : MonoBehaviour
             transform.localScale = new Vector3(Mathf.Lerp(0f, 1f, p), 1f, 1f);
             yield return null;
         }
+
         transform.localScale = Vector3.one;
         IsAnimating = false;
         yield break;
     }
+
     public void SetMatched()
     {
         IsMatched = true;
         button.interactable = false;
     }
+
     public void RevealInstant()
     {
         StopAllCoroutines();
@@ -76,6 +86,7 @@ public class Card : MonoBehaviour
         backImage.gameObject.SetActive(false);
         IsAnimating = false;
     }
+
     public void HideInstant()
     {
         StopAllCoroutines();
@@ -84,11 +95,11 @@ public class Card : MonoBehaviour
         backImage.gameObject.SetActive(true);
         IsAnimating = false;
     }
+
     void SetVisualInstant(bool faceUp)
     {
         IsFaceUp = faceUp;
         frontImage.gameObject.SetActive(faceUp);
         backImage.gameObject.SetActive(!faceUp);
-
     }
 }

@@ -12,13 +12,17 @@ public class UIManager : MonoBehaviour
 
     public void UpdateScore(int score, int combo)
     {
-        if (scoreText) scoreText.text = $"Score: {score}";
-        if (comboCountText) comboCountText.text = $"Combo: x{combo}";
+        if (scoreText)
+            scoreText.text = $"Score: {score}";
+
+        if (comboCountText)
+            comboCountText.text = $"Combo: x{combo}";
     }
 
     public void ShowGameOver(int finalScore)
     {
         gameOverPanel.SetActive(true);
-        if (finalScoreText) finalScoreText.text = $"Score: {finalScore}";
+        if (finalScoreText)
+            finalScoreText.text = $"Score: {finalScore}";
     }
 }
