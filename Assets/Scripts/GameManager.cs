@@ -6,6 +6,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    public BoardController boardController;
+    public UIManager uiManager;
+
     Queue<Card> flipQueue = new Queue<Card>();
 
     public int score { get; private set; }
@@ -13,6 +16,8 @@ public class GameManager : MonoBehaviour
     int comboCount = 0;
     float lastMatchTime = -10f;
     public float comboWindow = 2f;
+
+    public int rows, cols;
 
     void Awake()
     {
@@ -32,6 +37,8 @@ public class GameManager : MonoBehaviour
         score = 0;
         comboCount = 0;
         lastMatchTime = -10f;
+        boardController.SetupBoard(rows, cols);
+        uiManager.UpdateScore(score, comboCount);
     }
 
     IEnumerator ComparisonLoop()
@@ -72,6 +79,8 @@ public class GameManager : MonoBehaviour
             b.SetMatched();
             ApplyMatchScore();
 
+            if (boardController.AllMatched())
+                uiManager.ShowGameOver(score);
         }
         else
         {
@@ -89,5 +98,6 @@ public class GameManager : MonoBehaviour
 
         int points = Mathf.RoundToInt(basePoints * (1f + (comboCount - 1) * 0.5f));
         score += points;
+        uiManager.UpdateScore(score, comboCount);
     }
 }
