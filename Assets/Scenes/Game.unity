@@ -159,7 +159,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 98950715}
-  - component: {fileID: 98950714}
+  - component: {fileID: 98950716}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -167,23 +167,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &98950714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 98950713}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55a0c298370c03f48ad1fb4bb5aff472, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boardController: {fileID: 960978023}
-  uiManager: {fileID: 1276634192}
-  audioManager: {fileID: 1441902092}
-  saveSystem: {fileID: 1258891989}
-  comboWindow: 2
 --- !u!4 &98950715
 Transform:
   m_ObjectHideFlags: 0
@@ -199,6 +182,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &98950716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98950713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 908e06a8dd4d0184b9556dde71d80abb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boardController: {fileID: 960978023}
+  uiManager: {fileID: 1276634192}
 --- !u!1 &273914232
 GameObject:
   m_ObjectHideFlags: 0
@@ -845,7 +842,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 98950714}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: StartGame
         m_Mode: 1
@@ -1378,7 +1375,7 @@ GameObject:
   - component: {fileID: 916328026}
   - component: {fileID: 916328025}
   m_Layer: 5
-  m_Name: Load (2)
+  m_Name: 5x6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1448,7 +1445,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 98950714}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: LoadSavedIfAny
         m_Mode: 1
@@ -1830,6 +1827,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 8ca10674c3bc6aa48963eca4be0324e5, type: 3}
   - {fileID: 21300000, guid: 7fd68efac4f4e1548b0328ea42dcbe56, type: 3}
   - {fileID: 21300000, guid: 3d80a368039d437469eba72ac5bcdd54, type: 3}
+  grid: {fileID: 1921413393}
 --- !u!1 &1060491191
 GameObject:
   m_ObjectHideFlags: 0
@@ -2483,7 +2481,7 @@ GameObject:
   - component: {fileID: 1383613754}
   - component: {fileID: 1383613753}
   m_Layer: 5
-  m_Name: Load (1)
+  m_Name: 3x6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2553,7 +2551,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 98950714}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: LoadSavedIfAny
         m_Mode: 1
@@ -3413,7 +3411,7 @@ GameObject:
   - component: {fileID: 1990660865}
   - component: {fileID: 1990660864}
   m_Layer: 5
-  m_Name: Load
+  m_Name: 2x3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3483,7 +3481,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 98950714}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: LoadSavedIfAny
         m_Mode: 1
@@ -3752,7 +3750,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 98950714}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: RestartGame
         m_Mode: 1
@@ -3885,7 +3883,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 98950714}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: LoadSavedIfAny
         m_Mode: 1
