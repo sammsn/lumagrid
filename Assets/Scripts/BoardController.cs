@@ -13,7 +13,6 @@ public class BoardController : MonoBehaviour
     private List<Card> spawnedCards = new List<Card>();
     private int rows, cols;
 
-
     public void SetupBoard(int _rows, int _cols)
     {
         rows = _rows;

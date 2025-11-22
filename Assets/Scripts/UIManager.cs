@@ -7,6 +7,8 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI comboCountText;
 
+    public GameObject mainMenuPanel;
+    public GameObject gamePlayPanel;
     public GameObject gameOverPanel;
     public TextMeshProUGUI finalScoreText;
 
@@ -24,5 +26,11 @@ public class UIManager : MonoBehaviour
         gameOverPanel.SetActive(true);
         if (finalScoreText)
             finalScoreText.text = $"Score: {finalScore}";
+    }
+
+    public void LoadGameIfAny()
+    {
+        mainMenuPanel.SetActive(false);
+        gamePlayPanel.SetActive(true);
     }
 }

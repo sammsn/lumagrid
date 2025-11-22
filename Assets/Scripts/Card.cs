@@ -37,6 +37,7 @@ public class Card : MonoBehaviour
             return;
 
         StartCoroutine(Flip(true));
+        GameManager.Instance.RegisterFlip(this);
     }
 
     public IEnumerator Flip(bool faceUp)
